@@ -2,12 +2,10 @@
   'use strict';
 
   angular.module('app', [
-    'ngAnimate',
-    'ui.router',
-    'govuk.elements',
+    'ngSanitize',
     'ui.bootstrap',
-    'angular.vertilize',
+    'ui.router',
     'smoothScroll',
-    'ngSanitize'
+    'govuk.components'
   ]);
 })();

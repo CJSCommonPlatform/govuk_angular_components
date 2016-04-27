@@ -9,7 +9,7 @@
   function footerDirective($sce) {
     var directive = {
       link: link,
-      templateUrl: 'modules/footer/footer.tpl.html',
+      templateUrl: 'footer/footer.tpl.html',
       restrict: 'EA',
       scope: {
         settings: '=?footerSettings'

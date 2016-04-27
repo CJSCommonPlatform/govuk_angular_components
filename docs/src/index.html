@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app" id="ng-app">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="mask-icon" href="assets/images/gov.uk_logotype_crown.svg" color="#0b0c0c">
+  <title>ngGovUk</title>
+  <!-- demo app -->
+  <link rel="stylesheet" href="assets/govuk_angularjs_components.css" type="text/css"/>
+  <!-- Prism CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/themes/prism.min.css"/>
+  <!-- fontAwesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body id="top">
+  <header-directive nav-settings="globalNav"></header-directive>
+  <div id="global-header-bar"></div>
+  <main role="main">
+    <div class="container">
+      <div ui-view class="content-wrapper"></div>
+    </div>
+  </main>
+  <footer-directive></footer-directive>
+  <script src="node_modules/lodash/lodash.min.js"></script>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/components/prism-clike.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/components/prism-javascript.min.js"></script>
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <!--<script src="node_modules/angular-animate/angular-animate.min.js"></script>-->
+  <script src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="node_modules/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="node_modules/ng-smooth-scroll/dist/angular-smooth-scroll.min.js"></script>
+  <script src="scripts/govuk_angularjs_components.js"></script>
+  <script src="scripts/app.js"></script>
+</body>
+</html>

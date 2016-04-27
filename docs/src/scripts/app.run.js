@@ -4,7 +4,7 @@
   angular.module('app')
     .run(function ($rootScope) {
 
-      $scope.globalNav = {
+      $rootScope.globalNav = {
         pageTitle: {
           title: 'GOV.UK AngularJS Elements',
           type: 'href',

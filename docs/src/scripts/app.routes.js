@@ -4,7 +4,7 @@
   angular.module('app')
     .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
-    var viewsPath = 'app/views/';
+    var viewsPath = 'views/';
 
     $locationProvider.hashPrefix('!');
 
@@ -29,13 +29,9 @@
           controller: 'components'
         })
         .state('getting-started', {
-          url: '/getting-started',
+          url: '/',
           templateUrl: viewsPath + 'getting-started.html'
         })
-        .state('test-page', {
-          url: '/',
-          templateUrl: viewsPath + 'test-page.html'
-        });
       $urlRouterProvider.otherwise('/');
   });
 })();

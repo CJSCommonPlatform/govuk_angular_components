@@ -8,7 +8,7 @@
   function headerDirective() {
     var directive = {
       link: link,
-      templateUrl: 'modules/global-nav/global-nav.tpl.html',
+      templateUrl: 'header/header.tpl.html',
       restrict: 'EA',
       replace: true,
       scope: {

@@ -1,38 +1,55 @@
 'use strict';
 
-var gulp      = require('gulp');
-var hbsmaster = require('gulp-handlebars-master');
-var rename    = require('gulp-rename');
-var _         = require('underscore');
+var gulp        = require('gulp');
+var $           = require('gulp-load-plugins')({ lazy: true });
+var runSequence = require('run-sequence');
 
 module.exports = function (config) {
-  gulp.task('build-docs-app', ['move-dev-assets-to-docs-app', 'build-app-html']);
 
-  gulp.task('move-dev-assets-to-docs-app', function () {
-    return gulp.src([config.dev.assets.root + '/**/*'])
+  gulp.task('build-docs-app', function () {
+    runSequence(
+      ['copy-dist',
+        'copy-app-npm-modules',
+        'copy-app-html'],
+      'concatenate-app-scripts',
+      'minify-app-scripts'
+
+    );
+  });
+
+  gulp.task('copy-dist', ['copy-dist-assets-to-docs-app', 'copy-dist-scripts-to-docs-app']);
+
+  gulp.task('copy-dist-assets-to-docs-app', function () {
+    return gulp.src([config.dist.assets + '/**/*'])
       .pipe(gulp.dest(config.docs.app.assets));
   });
 
-  gulp.task('build-app-html', function() {
+  gulp.task('copy-dist-scripts-to-docs-app', function () {
+    return gulp.src([config.dist.scripts + '/**/*'])
+      .pipe(gulp.dest(config.docs.app.scripts));
+  });
 
-    var templateData = _.reduce(config.docs.app.pageObject, function (memo, val, key) {
-      memo[key] = val;
-      memo._structure.push(val);
-      return memo;
-    }, {
-      _structure: [] //helper array containing page info - used to generate the header link list
-    });
-
-    var options = {
-      batch : [config.docs.src.views.partials]
-    };
-
-    gulp.src(config.docs.src.views.pages + '/*.hbs')
-      .pipe(hbsmaster(config.docs.src.views.handlebarsTemplate, templateData, options))
-      .pipe(rename( function(path){
-        path.extname = '.html';
-      }))
+  gulp.task('copy-app-html', function () {
+    return gulp.src([config.docs.src.root + '/**/*.html'])
       .pipe(gulp.dest(config.docs.app.root));
   });
 
+  gulp.task('concatenate-app-scripts', function () {
+    return gulp.src(config.docs.src.scripts + '/**/*')
+      .pipe($.concat(config.angular.docsModuleName + '.js'))
+      .pipe(gulp.dest(config.docs.app.scripts));
+  });
+
+  gulp.task('minify-app-scripts', function () {
+    return gulp.src(config.docs.app.scripts + '/' + config.angular.docsModuleName + '.js')
+      .pipe($.ngAnnotate())
+      .pipe($.uglify())
+      .pipe($.rename({extname: '.min.js'}))
+      .pipe(gulp.dest(config.docs.app.scripts));
+  });
+
+  gulp.task('copy-app-npm-modules', function () {
+    return gulp.src($.npmFiles(true, config.docs.src.packageJson), {base:'./'})
+      .pipe(gulp.dest(config.docs.app.root));
+  });
 };

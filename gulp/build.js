@@ -8,8 +8,9 @@ module.exports = function () {
     runSequence(
       'copy-to-dev',
       'build-js',
-      // 'build-docs-app',
-      // 'copy-to-dist',
+      'build-css',
+      'copy-to-dist',
+      'build-docs-app',
       cb);
   });
 };

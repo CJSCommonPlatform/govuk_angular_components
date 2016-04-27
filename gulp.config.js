@@ -11,51 +11,49 @@
       },
       dev: {
         root: './dev',
-        govUkBootstrap: './dev/govuk_bootstrap',
-        scripts: './dev/scripts',
-        templates: './dev/templates'
+        sass: {
+          root: './dev/sass',
+          components: './dev/sass/components'
+        },
+        assets: {
+          root: './dev/assets',
+          govUkBootstrapStylesheet: './dev/assets/govuk_bootstrap.css'
+        },
+        scripts: {
+          root: './dev/scripts',
+          components: './dev/scripts/components',
+          templates: './dev/scripts/templates'
+        }
       },
       docs: {
         root: './docs',
         src: {
           root: './docs/src',
-          views: {
-            root: './docs/src/views',
-            pages: './docs/src/views/pages',
-            partials: './docs/src/views/partials',
-            handlebarsTemplate: './docs/src/views/template.hbs'
-          }
+          scripts: './docs/src/scripts',
+          packageJson: './docs/src/package.json'
         },
         app: {
           root: './docs/app',
           assets: './docs/app/assets',
-          pageObject: {
-            index : {
-              title : 'Introduction',
-              href : 'index.html'
-            },
-            css : {
-              title : 'CSS',
-              href : 'css.html'
-            },
-            elements : {
-              title : 'Elements',
-              href : 'elements.html'
-            }
-          }
+          scripts: './docs/app/scripts'
         }
-      },
-      angular: {
-        moduleName: 'govuk.components',
-        moduleFile: 'govuk.components.module.js',
-        templateFile: 'govuk.components.templates.js'
       },
       nodeModules: {
         govUkBootstrap: './node_modules/govuk_bootstrap/dist'
       },
       dist: {
-        root: './dist'
-      }
+        root: './dist',
+        assets: './dist/assets',
+        scripts: './dist/scripts',
+        sass: './dist/sass'
+      },
+      angular: {
+        moduleName: 'govuk.components',
+        moduleFile: 'govuk.components.module.js',
+        templateFile: 'govuk.components.templates.js',
+        docsModuleName: 'app'
+      },
+      repositoryName: 'govuk_angularjs_components'
     };
   }
 })();
