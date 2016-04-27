@@ -6,7 +6,7 @@
 
       $rootScope.globalNav = {
         pageTitle: {
-          title: 'GOV.UK AngularJS Elements',
+          title: 'GOV.UK AngularJS Components',
           type: 'href',
           ref: '#'
         },
