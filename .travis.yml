@@ -9,6 +9,7 @@ script:
 
 deploy:
   provider: npm
+  email: "vygintas.ranonis@ext.soprasteria.comg"
   api_key: "8f672dfa-b6e5-44ca-a0a7-682c663d3d5c"
   on:
     tags: true
