@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -ev
 
 cd docs/app
 git init
