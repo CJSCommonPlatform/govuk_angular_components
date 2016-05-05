@@ -1,0 +1,11 @@
+'use strict';
+require('jquery');
+require('angular');
+require('angular-animate');
+require('angular');
+require('angular-animate');
+require('angular-bootstrap');
+require('angular-sanitize');
+require('angular-ui-router');
+require('lodash');
+require('ng-smooth-scroll');

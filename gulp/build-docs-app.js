@@ -9,7 +9,7 @@ module.exports = function (config) {
   gulp.task('build-docs-app', function () {
     runSequence(
       ['copy-dist',
-        'copy-app-npm-modules',
+        'copy-vendor-js',
         'copy-app-html'],
       'concatenate-app-scripts',
       'minify-app-scripts'
@@ -48,8 +48,8 @@ module.exports = function (config) {
       .pipe(gulp.dest(config.docs.app.scripts));
   });
 
-  gulp.task('copy-app-npm-modules', function () {
-    return gulp.src($.npmFiles(true, config.docs.src.packageJson), {base:'./'})
-      .pipe(gulp.dest(config.docs.app.root));
-  });
+  gulp.task('copy-vendor-js', function () {
+    return gulp.src(config.dev.vendor + '/*.js')
+      .pipe(gulp.dest(config.docs.app.scripts));
+  })
 };

@@ -48,12 +48,9 @@ ng.module('govuk.components', ['govuk.footer','govuk.header']);
                  except where otherwise stated'
         }
       };
-
       var mergedSettings = angular.extend(defaultSettings, scope.settings);
 
-      if (mergedSettings.licence && mergedSettings.licence.text) {
-        mergedSettings.licence.text = $sce.trustAsHtml(mergedSettings.licence.text.toString());
-      }
+      mergedSettings.licence.text = $sce.trustAsHtml(mergedSettings.licence.text.toString());
 
       scope.settings = mergedSettings;
     }
@@ -65,7 +62,7 @@ ng.module('govuk.components', ['govuk.footer','govuk.header']);
 
   angular
     .module('govuk.header', [])
-    .directive('headerDirective', headerDirective);
+    .directive('headerDirective', headerDirective)
 
   function headerDirective() {
     var directive = {
@@ -103,42 +100,8 @@ ng.module('govuk.components', ['govuk.footer','govuk.header']);
           }
         };
       }
-
     }
   }
-})();
-
-(function(module) {
-try {
-  module = angular.module('govuk.components');
-} catch (e) {
-  module = angular.module('govuk.components', []);
-}
-module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('footer/footer.tpl.html',
-    '<footer class="group js-footer" id="footer" role="contentinfo">\n' +
-    '  <div class="footer-wrapper">\n' +
-    '    <div class="footer-meta">\n' +
-    '      <div class="footer-meta-inner">\n' +
-    '        <ul ng-if="settings.links.length">\n' +
-    '          <li data-ng-repeat="link in settings.links">\n' +
-    '            <a data-ng-if="link.type === \'href\'" data-ng-href="{{ link.ref }}">{{ link.title }}</a>\n' +
-    '            <a data-ng-if="link.type === \'ui-sref\'" data-ui-sref="{{ link.ref }}">{{ link.title }}</a>\n' +
-    '          </li>\n' +
-    '        </ul>\n' +
-    '        <div class="open-government-licence">\n' +
-    '          <p class="logo"><a data-ng-href="{{ settings.licence.link }}" rel="license">Open Government Licence</a></p>\n' +
-    '          <p class="licence-text" data-ng-bind-html="settings.licence.text"></p>\n' +
-    '        </div>\n' +
-    '      </div>\n' +
-    '      <div class="copyright">\n' +
-    '        <a data-ng-href="{{ settings.copyright.link }}">&copy; {{ settings.copyright.text }}</a>\n' +
-    '      </div>\n' +
-    '    </div>\n' +
-    '  </div>\n' +
-    '</footer>\n' +
-    '');
-}]);
 })();
 
 (function(module) {
@@ -175,6 +138,39 @@ module.run(['$templateCache', function($templateCache) {
     '    </div>\n' +
     '  </div>\n' +
     '</header>\n' +
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('govuk.components');
+} catch (e) {
+  module = angular.module('govuk.components', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('footer/footer.tpl.html',
+    '<footer class="group js-footer" id="footer" role="contentinfo">\n' +
+    '  <div class="footer-wrapper">\n' +
+    '    <div class="footer-meta">\n' +
+    '      <div class="footer-meta-inner">\n' +
+    '        <ul ng-if="settings.links.length">\n' +
+    '          <li data-ng-repeat="link in settings.links">\n' +
+    '            <a data-ng-if="link.type === \'href\'" data-ng-href="{{ link.ref }}">{{ link.title }}</a>\n' +
+    '            <a data-ng-if="link.type === \'ui-sref\'" data-ui-sref="{{ link.ref }}">{{ link.title }}</a>\n' +
+    '          </li>\n' +
+    '        </ul>\n' +
+    '        <div class="open-government-licence">\n' +
+    '          <p class="logo"><a data-ng-href="{{ settings.licence.link }}" rel="license">Open Government Licence</a></p>\n' +
+    '          <p class="licence-text" data-ng-bind-html="settings.licence.text"></p>\n' +
+    '        </div>\n' +
+    '      </div>\n' +
+    '      <div class="copyright">\n' +
+    '        <a data-ng-href="{{ settings.copyright.link }}">&copy; {{ settings.copyright.text }}</a>\n' +
+    '      </div>\n' +
+    '    </div>\n' +
+    '  </div>\n' +
+    '</footer>\n' +
     '');
 }]);
 })();

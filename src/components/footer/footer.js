@@ -44,12 +44,9 @@
                  except where otherwise stated'
         }
       };
-
       var mergedSettings = angular.extend(defaultSettings, scope.settings);
 
-      if (mergedSettings.licence && mergedSettings.licence.text) {
-        mergedSettings.licence.text = $sce.trustAsHtml(mergedSettings.licence.text.toString());
-      }
+      mergedSettings.licence.text = $sce.trustAsHtml(mergedSettings.licence.text.toString());
 
       scope.settings = mergedSettings;
     }

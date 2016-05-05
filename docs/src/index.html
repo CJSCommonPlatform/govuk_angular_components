@@ -12,6 +12,7 @@
   <!-- Prism CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/themes/prism.min.css"/>
   <!-- fontAwesome -->
+  <!--TODO: add font awesome into govuk_bootstrap-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body id="top">
@@ -23,18 +24,12 @@
     </div>
   </main>
   <footer-directive></footer-directive>
-  <script src="node_modules/lodash/lodash.min.js"></script>
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <!--TODO: see if prism can be loaded from npm (in bower it only provides src files that need to be built manually -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/components/prism-core.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/components/prism-markup.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/components/prism-clike.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.1.0/components/prism-javascript.min.js"></script>
-  <script src="node_modules/angular/angular.min.js"></script>
-  <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
-  <!--<script src="node_modules/angular-animate/angular-animate.min.js"></script>-->
-  <script src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
-  <script src="node_modules/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-  <script src="node_modules/ng-smooth-scroll/dist/angular-smooth-scroll.min.js"></script>
+  <script src="scripts/vendor.js"></script>
   <script src="scripts/govuk_angularjs_components.js"></script>
   <script src="scripts/app.js"></script>
 </body>
